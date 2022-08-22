@@ -9,8 +9,8 @@
     "start:ts": "ts-node src/index.ts",
     "build": "tsc src/index.ts --outDir ./dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["typescript", "template"],
+  "author": "Liu Mingxun <liumingxun@yeah.net>",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^18.7.9",
