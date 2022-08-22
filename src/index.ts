@@ -1,5 +1,13 @@
-import { lstat } from 'fs/promises'
+import net from 'net'
 
-console.log('233')
+const PORT = 2333
 
-lstat(process.cwd()).then(console.log)
+const tcpServer = net.createServer((socket) => {
+  socket.write('HTTP/1.1 200 OK\r\n Content-Type: text/plain\r\n\r\nHello Http')
+  socket.pipe(socket)
+  socket.end()
+})
+
+tcpServer.listen(PORT, () => {
+  console.log(`tcp server running at ${PORT}`)
+})
