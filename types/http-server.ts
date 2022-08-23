@@ -1,4 +1,4 @@
-import type {Server as tcpServer, Socket} from "net";
+import type { Socket, Server as tcpServer } from 'net'
 
 interface IRequest {
   headers: object
@@ -21,5 +21,5 @@ interface IResponse {
 type handler = (request: IRequest, response: IResponse) => void
 
 export {
-  IRequest, IResponse, handler,tcpServer
+  IRequest, IResponse, handler, tcpServer,
 }
