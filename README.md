@@ -1,33 +1,14 @@
-# ts-node-starter-template
+# 实现 http 服务
 
-![node version](https://img.shields.io/badge/node-v16.14.0-green)
+这个项目使用 Node.js 的 net 模块中的 tcp 服务器，实现了一个可以处理 http 协议的服务器。
 
-A typescript starter template with nodemon.
+为了实现该服务需要构建一个 tcp 服务，使其能够按照 http 协议理解报文。
 
-## Usage
-```bash 
-git clone https://github.com/Liumingxun/ts-node-starter-template.git
-```
-Then you need change directory name & name field in package.json.
 
-## Advantage
+额外补充：
 
-- Automatically restarting the node application when file changes, powered by nodemon.
-- Something else i can't thought.
-
-# ts-node 开始模板
-
-![node version](https://img.shields.io/badge/node-v16.14.0-green)
-
-一个带有 nodemon 的 typescript 模板。
-
-## 用法
-```bash 
-git clone https://github.com/Liumingxun/ts-node-starter-template.git
-```
-然后您需要更改目录名称和 package.json 中的 name 字段。
-
-## 优点
-
-- 文件更改时自动重新运行 Node 程序，由 nodemon 提供支持。
-- 还有一些我想不到的。
+在 Node.js 中，各服务有以下的对应
+- net -> tcp 服务
+- dgram -> udp 服务
+- http -> http 服务
+- https -> https 服务
