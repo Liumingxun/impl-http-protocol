@@ -1,13 +1,24 @@
-import net from 'net'
+import {createServer} from './server'
 
 const PORT = 2333
 
-const tcpServer = net.createServer((socket) => {
-  socket.write('HTTP/1.1 200 OK\r\n Content-Type: text/plain\r\n\r\nHello Http')
-  socket.pipe(socket)
-  socket.end()
-})
-
-tcpServer.listen(PORT, () => {
-  console.log(`tcp server running at ${PORT}`)
+createServer((request, response) => {
+  if (request.url.startsWith('/date')) {
+      response.writeHead(200, {
+        'Content-Type': 'application/json'
+      })
+      response.end(JSON.stringify({
+        date: new Date().toLocaleString()
+      }))
+    } else {
+      response.writeHead(404, {
+        'Content-Type': 'text/html;charset=utf-8'
+      })
+      response.end(`
+      <h2 style="text-align: center; ">Not Found</h2>
+      `)
+    }
+  }
+).listen(PORT, '0.0.0.0', () => {
+  console.log(`running on ${PORT}`)
 })
